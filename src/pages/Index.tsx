@@ -2,6 +2,8 @@ import PartyCard from "@/components/PartyCard";
 import ServiceCard from "@/components/ServiceCard";
 import GuestList from "@/components/GuestList";
 import SpecialNeeds from "@/components/SpecialNeeds";
+import EventTimeline from "@/components/EventTimeline";
+import PaymentSummary from "@/components/PaymentSummary";
 import partyHeroImage from "@/assets/party-hero.jpg";
 
 const Index = () => {
@@ -115,6 +117,94 @@ const Index = () => {
     }
   ];
 
+  const timelineEvents = [
+    {
+      id: "1",
+      title: "Contrato Assinado",
+      description: "Contrato da festa foi assinado e confirmado",
+      date: "20 de Nov, 2024",
+      status: "completed" as const,
+      type: "milestone" as const
+    },
+    {
+      id: "2", 
+      title: "Primeira Parcela",
+      description: "Pagamento da entrada (50% do valor total)",
+      date: "25 de Nov, 2024",
+      status: "completed" as const,
+      type: "payment" as const
+    },
+    {
+      id: "3",
+      title: "Confirmação do Cardápio",
+      description: "Definição final do buffet e necessidades especiais",
+      date: "1 de Dez, 2024",
+      status: "current" as const,
+      type: "confirmation" as const
+    },
+    {
+      id: "4",
+      title: "Segunda Parcela",
+      description: "Pagamento da segunda parcela (30% do valor total)",
+      date: "5 de Dez, 2024",
+      status: "upcoming" as const,
+      type: "payment" as const
+    },
+    {
+      id: "5",
+      title: "Confirmação Final de Convidados",
+      description: "Lista final de convidados confirmados",
+      date: "10 de Dez, 2024",
+      status: "upcoming" as const,
+      type: "confirmation" as const
+    },
+    {
+      id: "6",
+      title: "Pagamento Final",
+      description: "Quitação do valor restante (20% + extras)",
+      date: "13 de Dez, 2024",
+      status: "upcoming" as const,
+      type: "payment" as const
+    },
+    {
+      id: "7",
+      title: "Preparação Final",
+      description: "Montagem da decoração e preparativos finais",
+      date: "14 de Dez, 2024",
+      status: "upcoming" as const,
+      type: "preparation" as const
+    }
+  ];
+
+  const paymentData = {
+    totalAmount: 2500,
+    payments: [
+      {
+        id: "1",
+        description: "Entrada (50%)",
+        amount: 1250,
+        dueDate: "25 de Nov, 2024",
+        paidDate: "24 de Nov, 2024",
+        status: "paid" as const,
+        method: "pix" as const
+      },
+      {
+        id: "2",
+        description: "Segunda Parcela (30%)",
+        amount: 750,
+        dueDate: "5 de Dez, 2024",
+        status: "pending" as const
+      },
+      {
+        id: "3",
+        description: "Pagamento Final (20%)",
+        amount: 500,
+        dueDate: "13 de Dez, 2024",
+        status: "pending" as const
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-gradient-soft">
       {/* Hero Section */}
@@ -138,6 +228,18 @@ const Index = () => {
       <div className="container mx-auto px-4 py-12 space-y-8">
         {/* Party Details */}
         <PartyCard {...partyData} />
+
+        {/* Timeline and Payment Grid */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          <EventTimeline 
+            partyDate={partyData.date}
+            events={timelineEvents}
+          />
+          <PaymentSummary 
+            totalAmount={paymentData.totalAmount}
+            payments={paymentData.payments}
+          />
+        </div>
 
         {/* Services and Guests Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
