@@ -1,10 +1,11 @@
 import PartyCard from "@/components/PartyCard";
 import ServiceCard from "@/components/ServiceCard";
 import GuestList from "@/components/GuestList";
-import SpecialNeeds from "@/components/SpecialNeeds";
+import Requests from "@/components/Requests";
 import EventTimeline from "@/components/EventTimeline";
 import PaymentSummary from "@/components/PaymentSummary";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Package, CreditCard, Users, MessageSquare, Clock, Star } from "lucide-react";
 import partyHeroImage from "@/assets/party-hero.jpg";
 
 const Index = () => {
@@ -103,20 +104,38 @@ const Index = () => {
     }
   ];
 
-  const specialNeeds = [
+  const requests = [
     {
       id: "1",
-      type: "allergy" as const,
-      description: "Alergia severa a amendoim e nozes",
-      severity: "high" as const,
-      guestName: "Maria"
+      type: "parking" as const,
+      title: "Estacionamento para Prestador",
+      description: "Liberação de vaga no estacionamento para fornecedor externo (fotógrafo)",
+      status: "approved" as const,
+      priority: "medium" as const
     },
     {
       id: "2",
-      type: "dietary" as const,
-      description: "Vegetariana - não consome carne",
-      severity: "medium" as const,
-      guestName: "Carla"
+      type: "setup_time" as const,
+      title: "Flexibilização do Horário da Montagem",
+      description: "Solicitação para início da montagem às 12h em vez de 13h",
+      status: "pending" as const,
+      priority: "high" as const
+    },
+    {
+      id: "3",
+      type: "photographer" as const,
+      title: "Liberação de Fotógrafo na Arena Jump",
+      description: "Autorização para fotógrafo acompanhar as crianças na arena de pulos",
+      status: "in_review" as const,
+      priority: "medium" as const
+    },
+    {
+      id: "4",
+      type: "package_upgrade" as const,
+      title: "Upgrade de Pacote",
+      description: "Solicitação de upgrade para Pacote Premium Plus com mesa de doces adicional",
+      status: "pending" as const,
+      priority: "low" as const
     }
   ];
 
@@ -231,23 +250,38 @@ const Index = () => {
       <div className="container mx-auto px-4 py-12">
         <Tabs defaultValue="resumo" className="w-full">
           <TabsList className="w-full justify-start mb-8 h-auto p-2">
-            <TabsTrigger value="resumo" className="flex-1 whitespace-nowrap">Resumo do Pacote</TabsTrigger>
-            <TabsTrigger value="timeline" className="flex-1 whitespace-nowrap">Linha do Tempo</TabsTrigger>
-            <TabsTrigger value="pagamentos" className="flex-1 whitespace-nowrap">Pagamentos</TabsTrigger>
-            <TabsTrigger value="detalhes" className="flex-1 whitespace-nowrap">Detalhes do Pacote</TabsTrigger>
-            <TabsTrigger value="convidados" className="flex-1 whitespace-nowrap">Lista de Convidados</TabsTrigger>
-            <TabsTrigger value="solicitacoes" className="flex-1 whitespace-nowrap">Solicitações</TabsTrigger>
+            <TabsTrigger value="resumo" className="flex-1 whitespace-nowrap bg-gradient-party text-white data-[state=active]:bg-gradient-party data-[state=active]:text-white border-2 border-party-orange data-[state=active]:border-party-yellow">
+              <Star className="h-4 w-4 mr-2" />
+              Resumo do Pacote
+            </TabsTrigger>
+            <TabsTrigger value="detalhes" className="flex-1 whitespace-nowrap">
+              <Package className="h-4 w-4 mr-2" />
+              Detalhes do Pacote
+            </TabsTrigger>
+            <TabsTrigger value="pagamentos" className="flex-1 whitespace-nowrap">
+              <CreditCard className="h-4 w-4 mr-2" />
+              Pagamentos
+            </TabsTrigger>
+            <TabsTrigger value="convidados" className="flex-1 whitespace-nowrap">
+              <Users className="h-4 w-4 mr-2" />
+              Lista de Convidados
+            </TabsTrigger>
+            <TabsTrigger value="solicitacoes" className="flex-1 whitespace-nowrap">
+              <MessageSquare className="h-4 w-4 mr-2" />
+              Solicitações
+            </TabsTrigger>
+            <TabsTrigger value="timeline" className="flex-1 whitespace-nowrap">
+              <Clock className="h-4 w-4 mr-2" />
+              Linha do Tempo
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="resumo" className="space-y-8">
             <PartyCard {...partyData} />
           </TabsContent>
 
-          <TabsContent value="timeline" className="space-y-8">
-            <EventTimeline 
-              partyDate={partyData.date}
-              events={timelineEvents}
-            />
+          <TabsContent value="detalhes" className="space-y-8">
+            <ServiceCard title="Serviços & Pacotes" services={services} />
           </TabsContent>
 
           <TabsContent value="pagamentos" className="space-y-8">
@@ -257,16 +291,19 @@ const Index = () => {
             />
           </TabsContent>
 
-          <TabsContent value="detalhes" className="space-y-8">
-            <ServiceCard title="Serviços & Pacotes" services={services} />
-          </TabsContent>
-
           <TabsContent value="convidados" className="space-y-8">
             <GuestList guests={guests} />
           </TabsContent>
 
           <TabsContent value="solicitacoes" className="space-y-8">
-            <SpecialNeeds specialNeeds={specialNeeds} />
+            <Requests requests={requests} />
+          </TabsContent>
+
+          <TabsContent value="timeline" className="space-y-8">
+            <EventTimeline 
+              partyDate={partyData.date}
+              events={timelineEvents}
+            />
           </TabsContent>
         </Tabs>
       </div>
