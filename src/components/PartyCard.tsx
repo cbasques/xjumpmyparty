@@ -9,9 +9,11 @@ interface PartyCardProps {
   location: string;
   package: string;
   guests: number;
+  tickets: number;
+  ticketType: string;
 }
 
-const PartyCard = ({ title, date, time, location, package: packageName, guests }: PartyCardProps) => {
+const PartyCard = ({ title, date, time, location, package: packageName, guests, tickets, ticketType }: PartyCardProps) => {
   return (
     <Card className="relative overflow-hidden shadow-card hover:shadow-party transition-party group">
       <div className="absolute inset-0 bg-gradient-party opacity-5 group-hover:opacity-10 transition-party" />
@@ -33,7 +35,7 @@ const PartyCard = ({ title, date, time, location, package: packageName, guests }
             </div>
             <div>
               <p className="font-medium">{date}</p>
-              <p className="text-sm text-muted-foreground">{time}</p>
+              <p className="text-lg font-bold text-party-purple">{time}</p>
             </div>
           </div>
           
@@ -64,6 +66,7 @@ const PartyCard = ({ title, date, time, location, package: packageName, guests }
             <div>
               <p className="font-medium">Convidados</p>
               <p className="text-sm text-muted-foreground">{guests} pessoas</p>
+              <p className="text-sm font-medium text-party-pink">{tickets} Ingressos (tipo {ticketType})</p>
             </div>
           </div>
         </div>

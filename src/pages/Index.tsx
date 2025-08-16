@@ -4,6 +4,7 @@ import GuestList from "@/components/GuestList";
 import SpecialNeeds from "@/components/SpecialNeeds";
 import EventTimeline from "@/components/EventTimeline";
 import PaymentSummary from "@/components/PaymentSummary";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import partyHeroImage from "@/assets/party-hero.jpg";
 
 const Index = () => {
@@ -14,7 +15,9 @@ const Index = () => {
     time: "14:00 - 18:00",
     location: "Parque Aventura Kids - Sala Fantasia",
     package: "Pacote Premium",
-    guests: 25
+    guests: 25,
+    tickets: 15,
+    ticketType: "3 Horas"
   };
 
   const services = [
@@ -225,30 +228,47 @@ const Index = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-12 space-y-8">
-        {/* Party Details */}
-        <PartyCard {...partyData} />
+      <div className="container mx-auto px-4 py-12">
+        <Tabs defaultValue="resumo" className="w-full">
+          <TabsList className="grid w-full grid-cols-6 mb-8">
+            <TabsTrigger value="resumo">Resumo do Pacote</TabsTrigger>
+            <TabsTrigger value="timeline">Linha do Tempo</TabsTrigger>
+            <TabsTrigger value="pagamentos">Pagamentos</TabsTrigger>
+            <TabsTrigger value="detalhes">Detalhes do Pacote</TabsTrigger>
+            <TabsTrigger value="convidados">Lista de Convidados</TabsTrigger>
+            <TabsTrigger value="solicitacoes">Solicitações</TabsTrigger>
+          </TabsList>
 
-        {/* Timeline and Payment Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-          <EventTimeline 
-            partyDate={partyData.date}
-            events={timelineEvents}
-          />
-          <PaymentSummary 
-            totalAmount={paymentData.totalAmount}
-            payments={paymentData.payments}
-          />
-        </div>
+          <TabsContent value="resumo" className="space-y-8">
+            <PartyCard {...partyData} />
+          </TabsContent>
 
-        {/* Services and Guests Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <ServiceCard title="Serviços & Pacotes" services={services} />
-          <GuestList guests={guests} />
-        </div>
+          <TabsContent value="timeline" className="space-y-8">
+            <EventTimeline 
+              partyDate={partyData.date}
+              events={timelineEvents}
+            />
+          </TabsContent>
 
-        {/* Special Needs */}
-        <SpecialNeeds specialNeeds={specialNeeds} />
+          <TabsContent value="pagamentos" className="space-y-8">
+            <PaymentSummary 
+              totalAmount={paymentData.totalAmount}
+              payments={paymentData.payments}
+            />
+          </TabsContent>
+
+          <TabsContent value="detalhes" className="space-y-8">
+            <ServiceCard title="Serviços & Pacotes" services={services} />
+          </TabsContent>
+
+          <TabsContent value="convidados" className="space-y-8">
+            <GuestList guests={guests} />
+          </TabsContent>
+
+          <TabsContent value="solicitacoes" className="space-y-8">
+            <SpecialNeeds specialNeeds={specialNeeds} />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
