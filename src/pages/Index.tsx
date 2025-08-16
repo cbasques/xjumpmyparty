@@ -230,13 +230,13 @@ const Index = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
         <Tabs defaultValue="resumo" className="w-full">
-          <TabsList className="grid w-full grid-cols-6 mb-8">
-            <TabsTrigger value="resumo">Resumo do Pacote</TabsTrigger>
-            <TabsTrigger value="timeline">Linha do Tempo</TabsTrigger>
-            <TabsTrigger value="pagamentos">Pagamentos</TabsTrigger>
-            <TabsTrigger value="detalhes">Detalhes do Pacote</TabsTrigger>
-            <TabsTrigger value="convidados">Lista de Convidados</TabsTrigger>
-            <TabsTrigger value="solicitacoes">Solicitações</TabsTrigger>
+          <TabsList className="w-full justify-start mb-8 h-auto p-2">
+            <TabsTrigger value="resumo" className="flex-1 whitespace-nowrap">Resumo do Pacote</TabsTrigger>
+            <TabsTrigger value="timeline" className="flex-1 whitespace-nowrap">Linha do Tempo</TabsTrigger>
+            <TabsTrigger value="pagamentos" className="flex-1 whitespace-nowrap">Pagamentos</TabsTrigger>
+            <TabsTrigger value="detalhes" className="flex-1 whitespace-nowrap">Detalhes do Pacote</TabsTrigger>
+            <TabsTrigger value="convidados" className="flex-1 whitespace-nowrap">Lista de Convidados</TabsTrigger>
+            <TabsTrigger value="solicitacoes" className="flex-1 whitespace-nowrap">Solicitações</TabsTrigger>
           </TabsList>
 
           <TabsContent value="resumo" className="space-y-8">
