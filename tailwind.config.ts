@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				party: {
+					purple: 'hsl(var(--party-purple))',
+					pink: 'hsl(var(--party-pink))',
+					blue: 'hsl(var(--party-blue))',
+					yellow: 'hsl(var(--party-yellow))',
+					orange: 'hsl(var(--party-orange))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -67,6 +74,18 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			backgroundImage: {
+				'gradient-party': 'var(--gradient-party)',
+				'gradient-fun': 'var(--gradient-fun)',
+				'gradient-soft': 'var(--gradient-soft)'
+			},
+			boxShadow: {
+				'party': 'var(--shadow-party)',
+				'card': 'var(--shadow-card)'
+			},
+			transitionProperty: {
+				'party': 'var(--transition-party)'
 			},
 			keyframes: {
 				'accordion-down': {
