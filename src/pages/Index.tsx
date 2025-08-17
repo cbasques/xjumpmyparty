@@ -29,6 +29,14 @@ const Index = () => {
     status: "signed" as const
   };
 
+  const contractorData = {
+    fullName: "Ana Paula Silva Santos",
+    cpf: "123.456.789-00",
+    email: "ana.paula@email.com", 
+    whatsapp: "(11) 99999-9999",
+    address: "Rua das Flores, 123 - Vila Madalena - São Paulo/SP - CEP: 05435-010"
+  };
+
   const services = [
     {
       id: "1",
@@ -289,7 +297,7 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="detalhes" className="space-y-8">
-            <TermsConditions contract={contractData} />
+            <TermsConditions contract={contractData} contractor={contractorData} />
             <ServiceCard title="Serviços & Pacotes" services={services} />
           </TabsContent>
 
