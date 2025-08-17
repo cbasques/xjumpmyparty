@@ -244,43 +244,43 @@ const Index = () => {
           style={{ backgroundImage: `url(${partyHeroImage})` }}
         />
         <div className="absolute inset-0 bg-gradient-party opacity-90" />
-        <div className="relative z-10 container mx-auto px-4 py-16 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+        <div className="relative z-10 container mx-auto px-4 py-8 md:py-16 text-center">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-2 md:mb-4">
             🎉 PartyPlay Tracker
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8">
+          <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-4 md:mb-8">
             Acompanhe todos os detalhes da sua festa especial
           </p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-6 md:py-12">
         <Tabs defaultValue="resumo" className="w-full">
-          <TabsList className="w-full justify-start mb-8 h-auto p-2">
-            <TabsTrigger value="resumo" className="flex-1 whitespace-nowrap bg-gradient-party text-white data-[state=active]:bg-gradient-party data-[state=active]:text-white border-2 border-party-orange data-[state=active]:border-party-yellow">
-              <Star className="h-4 w-4 mr-2" />
-              Resumo do Pacote
+          <TabsList className="w-full grid grid-cols-2 md:grid-cols-6 gap-1 mb-6 md:mb-8 h-auto p-1 md:p-2">
+            <TabsTrigger value="resumo" className="flex-1 min-w-0 text-xs md:text-sm p-2 md:p-3 bg-gradient-party text-white data-[state=active]:bg-gradient-party data-[state=active]:text-white border-2 border-party-orange data-[state=active]:border-party-yellow">
+              <Star className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
+              <span className="truncate">Resumo</span>
             </TabsTrigger>
-            <TabsTrigger value="detalhes" className="flex-1 whitespace-nowrap">
-              <Package className="h-4 w-4 mr-2" />
-              Detalhes do Pacote
+            <TabsTrigger value="detalhes" className="flex-1 min-w-0 text-xs md:text-sm p-2 md:p-3">
+              <Package className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
+              <span className="truncate">Detalhes</span>
             </TabsTrigger>
-            <TabsTrigger value="pagamentos" className="flex-1 whitespace-nowrap">
-              <CreditCard className="h-4 w-4 mr-2" />
-              Pagamentos
+            <TabsTrigger value="pagamentos" className="flex-1 min-w-0 text-xs md:text-sm p-2 md:p-3">
+              <CreditCard className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
+              <span className="truncate">Pagamentos</span>
             </TabsTrigger>
-            <TabsTrigger value="convidados" className="flex-1 whitespace-nowrap">
-              <Users className="h-4 w-4 mr-2" />
-              Lista de Convidados
+            <TabsTrigger value="convidados" className="flex-1 min-w-0 text-xs md:text-sm p-2 md:p-3">
+              <Users className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
+              <span className="truncate">Convidados</span>
             </TabsTrigger>
-            <TabsTrigger value="solicitacoes" className="flex-1 whitespace-nowrap">
-              <MessageSquare className="h-4 w-4 mr-2" />
-              Solicitações
+            <TabsTrigger value="solicitacoes" className="flex-1 min-w-0 text-xs md:text-sm p-2 md:p-3">
+              <MessageSquare className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
+              <span className="truncate">Solicitações</span>
             </TabsTrigger>
-            <TabsTrigger value="timeline" className="flex-1 whitespace-nowrap">
-              <Clock className="h-4 w-4 mr-2" />
-              Linha do Tempo
+            <TabsTrigger value="timeline" className="flex-1 min-w-0 text-xs md:text-sm p-2 md:p-3">
+              <Clock className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
+              <span className="truncate">Timeline</span>
             </TabsTrigger>
           </TabsList>
 
