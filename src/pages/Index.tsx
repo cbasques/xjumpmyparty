@@ -288,7 +288,7 @@ const Index = () => {
             </TabsTrigger>
             <TabsTrigger value="timeline" className="flex-1 min-w-0 text-xs md:text-sm p-2 md:p-3">
               <Clock className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
-              <span className="truncate">Timeline</span>
+              <span className="truncate">Histórico</span>
             </TabsTrigger>
           </TabsList>
 
