@@ -78,8 +78,19 @@ const PartyCard = ({ title, birthdayPerson, age, theme, date, time, location, pa
             </div>
             <div className="min-w-0 flex-1">
               <p className="font-medium text-sm md:text-base">Convidados</p>
-              <p className="text-xs md:text-sm text-muted-foreground">{guests} pessoas</p>
-              <p className="text-xs md:text-sm font-medium text-party-pink">{tickets} Ingressos (tipo {ticketType})</p>
+              <div className="flex flex-col space-y-1">
+                <p className="text-lg md:text-xl font-bold text-party-pink">
+                  {guests} <span className="text-sm font-medium text-muted-foreground">pessoas</span>
+                </p>
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-party-pink/10 text-party-pink border border-party-pink/20">
+                    {tickets} Ingressos
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    {ticketType}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
