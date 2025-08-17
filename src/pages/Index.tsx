@@ -1,5 +1,6 @@
 import PartyCard from "@/components/PartyCard";
 import ServiceCard from "@/components/ServiceCard";
+import TermsConditions from "@/components/TermsConditions";
 import GuestList from "@/components/GuestList";
 import Requests from "@/components/Requests";
 import EventTimeline from "@/components/EventTimeline";
@@ -12,6 +13,9 @@ const Index = () => {
   // Mock data - Em uma aplicação real, estes dados viriam de uma API
   const partyData = {
     title: "Festa da Sofia 🎂",
+    birthdayPerson: "Sofia",
+    age: 7,
+    theme: "Unicórnio",
     date: "15 de Dezembro, 2024",
     time: "14:00 - 18:00",
     location: "Parque Aventura Kids - Sala Fantasia",
@@ -19,6 +23,10 @@ const Index = () => {
     guests: 25,
     tickets: 15,
     ticketType: "3 Horas"
+  };
+
+  const contractData = {
+    status: "signed" as const
   };
 
   const services = [
@@ -281,6 +289,7 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="detalhes" className="space-y-8">
+            <TermsConditions contract={contractData} />
             <ServiceCard title="Serviços & Pacotes" services={services} />
           </TabsContent>
 

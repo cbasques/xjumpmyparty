@@ -4,6 +4,9 @@ import { Calendar, MapPin, Users, Gift } from "lucide-react";
 
 interface PartyCardProps {
   title: string;
+  birthdayPerson: string;
+  age: number;
+  theme: string;
   date: string;
   time: string;
   location: string;
@@ -13,15 +16,25 @@ interface PartyCardProps {
   ticketType: string;
 }
 
-const PartyCard = ({ title, date, time, location, package: packageName, guests, tickets, ticketType }: PartyCardProps) => {
+const PartyCard = ({ title, birthdayPerson, age, theme, date, time, location, package: packageName, guests, tickets, ticketType }: PartyCardProps) => {
   return (
     <Card className="relative overflow-hidden shadow-card hover:shadow-party transition-party group">
       <div className="absolute inset-0 bg-gradient-party opacity-5 group-hover:opacity-10 transition-party" />
       <CardHeader className="relative">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-2xl font-bold bg-gradient-party bg-clip-text text-transparent">
-            {title}
-          </CardTitle>
+          <div>
+            <CardTitle className="text-2xl font-bold bg-gradient-party bg-clip-text text-transparent">
+              {title}
+            </CardTitle>
+            <div className="mt-2 space-y-1">
+              <p className="text-lg font-semibold text-party-purple">
+                {birthdayPerson}, {age} anos
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Tema: {theme}
+              </p>
+            </div>
+          </div>
           <Badge variant="secondary" className="bg-party-pink text-white">
             Confirmada
           </Badge>
